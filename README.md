@@ -50,6 +50,6 @@ https://github.com/Qasim538
 
 # Preview
 
-![Preview](Assets/images/weather.png)
+![Preview](assets/images/weather.png)
 
 
