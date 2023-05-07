@@ -57,6 +57,7 @@ function getCurrentWeather(thisCity, id) {
         cityLat = data.coord.lat;
         cityLong = data.coord.lon;
         getUVI(id, cityLat, cityLong);
+
     })
 
 }
@@ -91,6 +92,8 @@ function getForecast(thisCity, id) {
     })
 }
 
+
+
 // called within getCurrentWeather() to get uv index for selected city
 function getUVI(id, cityLat, cityLong) {
     var uvURL = `https://api.openweathermap.org/data/2.5/uvi?lat=${cityLat}&lon=${cityLong}&appid=${id}`;
@@ -118,6 +121,7 @@ function displayCityWeather() {
 // calls main on page load function
 init();
 
+
 // submit event that loads new data
 $("form").on("submit", function(event) {
     event.preventDefault();
@@ -131,3 +135,4 @@ $("form").on("submit", function(event) {
 
 // click event that calls displayCityWeather()
 $(".cityList").on("click", ".cityButton", displayCityWeather);
+
