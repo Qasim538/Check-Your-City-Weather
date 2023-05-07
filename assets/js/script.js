@@ -46,10 +46,11 @@ function getCurrentWeather(thisCity, id) {
     }).then(function (data) {
         $(".cityToday").append(
             `<div class="row ml-1">
-                <h3 class="mr-3">${data.name} (${(new Date(1000 * data.dt).getUTCMonth()) + 1}/${(new Date(1000 * data.dt).getUTCDate()) - 1}/${new Date(1000 * data.dt).getUTCFullYear()})</h3>
+                <h3 class="mr-3">${data.name} (${(new Date(1000 * data.dt).getDate())}/${(new Date(1000 * data.dt).getMonth()) + 1}/${new Date(1000 * data.dt).getFullYear()})</h3>
                 <img src="http://openweathermap.org/img/w/${data.weather[0].icon}.png">
             </div>`
         )
+
         $(".cityToday").append(`<p>Temperature: ${data.main.temp} &degF</p>`)
         $(".cityToday").append(`<p>Humidity: ${data.main.humidity} %</p>`)
         $(".cityToday").append(`<p>Wind: ${data.wind.speed} mph</p>`)
@@ -59,6 +60,7 @@ function getCurrentWeather(thisCity, id) {
     })
 
 }
+
 
 // gets 5 day forecast for selected city
 function getForecast(thisCity, id) {
@@ -74,7 +76,7 @@ function getForecast(thisCity, id) {
                 $(".forecast").append(
                     `<div class="card bg-primary shadow m-4">
                         <div class="card-body">
-                            <h4 class="card-title">${(new Date(1000 * forecastDate.dt).getUTCMonth()) + 1}/${new Date(1000 * forecastDate.dt).getUTCDate()}/${new Date(1000 * forecastDate.dt).getUTCFullYear()}</h4>
+                            <h4 class="card-title">${(new Date(1000 * forecastDate.dt).getDate())}/${(new Date(1000 * forecastDate.dt).getMonth())+ 1}/${new Date(1000 * forecastDate.dt).getUTCFullYear()}</h4>
                             <div class="card-text">
                                 <img src="http://openweathermap.org/img/w/${forecastDate.weather[0].icon}.png">
                                 <p class="card-text">Temp: ${forecastDate.main.temp} &degF</p>
